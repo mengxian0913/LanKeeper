@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { TabBarIcon } from "@/components/Themed";
 import Home from "./Home/Home";
 import Setting from "./Setting/Setting";
+import Create from "./Create/Create";
 
 const Tab = createBottomTabNavigator();
 
@@ -27,8 +28,18 @@ const TabLayout = () => {
           options={{
             title: "Quize",
             tabBarIcon: ({ color }) => (
-              // <FontAwesome6 name="file-pen" size={24} color="black" />
               <TabBarIcon name="pencil" color={color} />
+            ),
+          }}
+        />
+
+        <Tab.Screen
+          name="create"
+          component={Create}
+          options={{
+            title: "Create",
+            tabBarIcon: ({ color }) => (
+              <TabBarIcon name="add-circle" color={color} />
             ),
           }}
         />
@@ -39,7 +50,6 @@ const TabLayout = () => {
           options={{
             title: "Setting",
             tabBarIcon: ({ color }) => (
-              // <FontAwesome6 name="file-pen" size={24} color="black" />
               <TabBarIcon name="person" color={color} />
             ),
           }}
