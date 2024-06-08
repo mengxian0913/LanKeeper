@@ -3,9 +3,9 @@ import { View, FlatList, Text} from "react-native";
 import styles from "./Styles";
 
 const data=[
-{id: 1,selection:"Account",},
+{id: 1,selection:"Account"},
 {id: 2,selection:"Display"},
-{id: 3,selection:"Noification"},
+{id: 3,selection:"Notification"},
 {id: 4,selection:"AboutUs"}]
 
 const HomeScreen = ({navigation}) => {

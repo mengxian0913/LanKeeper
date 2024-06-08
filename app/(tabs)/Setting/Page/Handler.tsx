@@ -2,11 +2,14 @@ import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Colors from "@/constants/Colors";
 import HomeScreen from "./Home.tsx";
-import DisplayScreen from "./Display.tsx";
+import DisplayScreen  from "./Display.tsx";
 import Aboutus from "./Aboutus.tsx";
 import AccountScreen from "./Account.tsx";
+import NoticeScreen from './Noti.tsx';
 
 const Stack = createNativeStackNavigator();
+
+
 
 const PageHandler = () => {
   return(
@@ -20,6 +23,7 @@ const PageHandler = () => {
         <Stack.Screen name="Setting" component={HomeScreen} />
         <Stack.Screen name="Account" component={AccountScreen} />
         <Stack.Screen name="Display" component={DisplayScreen} />
+        <Stack.Screen name="Notification" component={NoticeScreen} />
         <Stack.Screen name="AboutUs" component={Aboutus} />
       </Stack.Navigator>
     </NavigationContainer>
