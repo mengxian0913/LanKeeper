@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     backgroundColor: "transparent",
+    textAlign: "center",
   },  
   flatlist: {
     width: "100%",
@@ -26,62 +27,18 @@ const styles = StyleSheet.create({
     marginVertical: 25,
     fontSize: 25,
     fontWeight: "500",
+    textAlign: "center",
   },
   view: {
     backgroundColor: Colors.dark.background,
   },
-  flattextdark: {
-    color: Colors.dark.text,
-    marginVertical: 25,
-    fontSize: 25,
-    fontWeight: "500",
-  },
-  dropdownButtonStyle: {
-      marginVertical: 18,
-      width: 200,
-      height: 50,
-      backgroundColor: '#E9ECEF',
-      borderRadius: 12,
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-      paddingHorizontal: 12,
-    },
-    dropdownButtonTxtStyle: {
-      flex: 1,
-      fontSize: 18,
-      fontWeight: '500',
-      color: '#151E26',
-    },
-    dropdownButtonArrowStyle: {
-      fontSize: 28,
-    },
-    dropdownButtonIconStyle: {
-      fontSize: 28,
-      marginRight: 8,
-    },
-    dropdownMenuStyle: {
-      backgroundColor: '#E9ECEF',
-      borderRadius: 8,
-    },
-    dropdownItemStyle: {
-      width: '100%',
-      flexDirection: 'row',
-      paddingHorizontal: 12,
-      justifyContent: 'center',
-      alignItems: 'center',
-      paddingVertical: 8,
-    },
-    dropdownItemTxtStyle: {
-      flex: 1,
-      fontSize: 18,
-      fontWeight: '500',
-      color: '#151E26',
-    },
-    dropdownItemIconStyle: {
-      fontSize: 28,
-      marginRight: 8,
-    },
+  textinput: {
+    textAlign: "center",
+    fontSize: 20,
+    borderColor: Colors.light.tabIconDefault,
+    borderWidth: 3,
+    borderCurve: "circular",
+  }
 });
 
 export default styles;

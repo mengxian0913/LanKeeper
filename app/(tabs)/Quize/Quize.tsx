@@ -19,13 +19,28 @@ const Quize = () => {
     const Read = async () => {
       const TempforJson = await Fs.readAsStringAsync(file);
       Setjson(JSON.parse(TempforJson));
-      console.log(jsondata);
       }
     Read();
   },[]);
 
-  const NextQuestion = (title:string,ans:string) => {
-    if(title==ans) Setcorrect(correct+1); 
+  const HandlerememberValue = async(key:number,ans:boolean) => {
+    let newData:Datatype[] = jsondata;
+    console.log(jsondata[key].rememberValue);
+    if(ans)newData[key].rememberValue=newData[key].rememberValue+15;
+    else newData[key].rememberValue=newData[key].rememberValue-20;
+    if(newData[key].rememberValue<0)newData[key].rememberValue=0;
+    if(newData[key].rememberValue>100) newData[key].rememberValue=100;
+    await Fs.writeAsStringAsync(file,JSON.stringify(newData));
+    Setjson(newData);
+    console.log(jsondata[key].rememberValue);
+  }
+  const NextQuestion = (title:string,ans:string,key:number) => {
+    console.log();
+    if(title==ans) {
+    HandlerememberValue(key,true)
+    Setcorrect(correct+1)
+    } 
+    else{HandlerememberValue(key,false)}
     if(examRate===examNum || examRate>examNum) SetTest(2);
     return SetRate(examRate+1);
   }
@@ -96,10 +111,10 @@ const Quize = () => {
       <View>
         <Button title="Escape" onPress={ResetRate} />
         <Text style={styles.questionNumSelector}>{jsondata[AnswerNum].description}</Text>
-        <Text style={styles.questionNumSelector} onPress={() => NextQuestion(jsondata[AnswerNum].word,jsondata[NumArray[0].num].word)}>{jsondata[NumArray[0].num].word}</Text>
-        <Text style={styles.questionNumSelector} onPress={() => NextQuestion(jsondata[AnswerNum].word,jsondata[NumArray[1].num].word)}>{jsondata[NumArray[1].num].word}</Text>
-        <Text style={styles.questionNumSelector} onPress={() => NextQuestion(jsondata[AnswerNum].word,jsondata[NumArray[2].num].word)}>{jsondata[NumArray[2].num].word}</Text>
-        <Text style={styles.questionNumSelector} onPress={() => NextQuestion(jsondata[AnswerNum].word,jsondata[NumArray[3].num].word)}>{jsondata[NumArray[3].num].word}</Text>
+        <Text style={styles.questionNumSelector} onPress={() => NextQuestion(jsondata[AnswerNum].word,jsondata[NumArray[0].num].word,NumArray[0].num)}>{jsondata[NumArray[0].num].word}</Text>
+        <Text style={styles.questionNumSelector} onPress={() => NextQuestion(jsondata[AnswerNum].word,jsondata[NumArray[1].num].word,NumArray[1].num)}>{jsondata[NumArray[1].num].word}</Text>
+        <Text style={styles.questionNumSelector} onPress={() => NextQuestion(jsondata[AnswerNum].word,jsondata[NumArray[2].num].word,NumArray[2].num)}>{jsondata[NumArray[2].num].word}</Text>
+        <Text style={styles.questionNumSelector} onPress={() => NextQuestion(jsondata[AnswerNum].word,jsondata[NumArray[3].num].word,NumArray[3].num)}>{jsondata[NumArray[3].num].word}</Text>
       </View>
   )}
   const TestHandler = () => {

@@ -5,6 +5,7 @@ import { vocType } from "../Home/VocCard/VocCard.js";
 import { vocFileName } from "@/constants/fileName";
 import { MyContext, myContextType } from "../_layout";
 import { useNavigation } from "expo-router";
+import styles from "./Styles";
 
 type Datatype = vocType;
 const Create = () => {
@@ -17,7 +18,7 @@ const Create = () => {
     lexical: "",
     description: "",
     example: "",
-    rememberValue: 50,
+    rememberValue: 0,
   });
 
   const file = Fs.documentDirectory + vocFileName;
@@ -33,9 +34,12 @@ const Create = () => {
 
   const SendData = async () => {
     let tempData = jsondata;
-    const newData = { ...temp, rememberValue: 50 };
-    tempData.push(newData);
-    await Fs.writeAsStringAsync(file, JSON.stringify(tempData));
+    let newList:Datatype[] = [];
+    const newData = { ...temp,};
+    newList.push(newData); 
+    newList = newList.concat(tempData);
+    //console.log(newList);
+    await Fs.writeAsStringAsync(file, JSON.stringify(newList));
     setReFetch(!reFetch);
     navigation.navigate("home" as never);
   };
@@ -46,27 +50,38 @@ const Create = () => {
       </SafeAreaView>
     );
   };
+
+  const HandleInput = (text:string) => {
+    const newText = text.replace(/[^a-zA-Z]/g, "");
+    //console.log(text);
+    //Setdata({...temp,word:newText});
+    return newText;
+  }
   return (
     <View>
       <Header />
-      <Text>Name</Text>
-      <TextInput
-        onChangeText={(text) => Setdata({ ...temp, word: text })}
+      <Text style={styles.flattext}>Name</Text>
+      <TextInput        
+        style={styles.textinput}
+        onChangeText={(text)=>Setdata({...temp, word:HandleInput(text)})}
         value={temp.word}
       />
-      <Text>Part of speech</Text>
-      <TextInput
-        onChangeText={(text) => Setdata({ ...temp, lexical: text })}
+      <Text style={styles.flattext}>Part of speech</Text>
+      <TextInput        
+        style={styles.textinput}
+        onChangeText={(text) => Setdata({ ...temp, lexical:HandleInput(text) })}
         value={temp.lexical}
       />
-      <Text>Description</Text>
+      <Text style={styles.flattext}>Description</Text>
       <TextInput
-        onChangeText={(text) => Setdata({ ...temp, description: text })}
+        style={styles.textinput}
+        onChangeText={(text) => Setdata({ ...temp, description:HandleInput(text)})}
         value={temp.description}
       />
-      <Text>Example sentence</Text>
+      <Text style={styles.flattext}>Example sentence</Text>
       <TextInput
-        onChangeText={(text) => Setdata({ ...temp, example: text })}
+        style={styles.textinput}
+        onChangeText={(text) => Setdata({ ...temp, example: HandleInput(text )})}
         value={temp.example}
       />
       <Button title="Send" onPress={SendData} />

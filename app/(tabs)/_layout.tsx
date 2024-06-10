@@ -44,7 +44,7 @@ const TabLayout = () => {
         await Fs.writeAsStringAsync(file, JSON.stringify(tempData));
         const TempforJson = await Fs.readAsStringAsync(file);
         Setjson(JSON.parse(TempforJson));
-        console.log(jsondata);
+        //console.log(jsondata);
       }
     };
     Read();
