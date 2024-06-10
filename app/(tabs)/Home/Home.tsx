@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import styles from "./styles";
 import { SafeAreaView, Text, View } from "react-native";
 import Search from "./Search/Search";
 import BottomSheet from "@gorhom/bottom-sheet";
 import SearchBottom from "./Search/SearchBottom/SearchBottom";
-// import voc from "../../../constants/data/voc.json";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import {
@@ -83,4 +81,3 @@ const Home = () => {
 };
 
 export default Home;
-
