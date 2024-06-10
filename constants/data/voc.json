@@ -1,0 +1,331 @@
+[
+  {
+    "word": "apple",
+    "lexical": "noun",
+    "description": "a fruit",
+    "example": "This is an apple.",
+    "rememberValue": 20
+  },
+  {
+    "word": "run",
+    "lexical": "verb",
+    "description": "to move swiftly on foot",
+    "example": "He can run very fast.",
+    "rememberValue": 50
+  },
+  {
+    "word": "beautiful",
+    "lexical": "adjective",
+    "description": "pleasing the senses or mind aesthetically",
+    "example": "The sunset was beautiful.",
+    "rememberValue": 30
+  },
+  {
+    "word": "happiness",
+    "lexical": "noun",
+    "description": "the state of being happy",
+    "example": "Happiness is the key to a good life.",
+    "rememberValue": 40
+  },
+  {
+    "word": "quickly",
+    "lexical": "adverb",
+    "description": "at a fast speed",
+    "example": "She finished the test quickly.",
+    "rememberValue": 25
+  },
+  {
+    "word": "build",
+    "lexical": "verb",
+    "description": "to construct by putting parts together",
+    "example": "They plan to build a new house.",
+    "rememberValue": 35
+  },
+  {
+    "word": "knowledge",
+    "lexical": "noun",
+    "description": "facts, information, and skills acquired by a person",
+    "example": "Knowledge is power.",
+    "rememberValue": 60
+  },
+  {
+    "word": "joyful",
+    "lexical": "adjective",
+    "description": "feeling, expressing, or causing great pleasure and happiness",
+    "example": "The joyful event brought everyone together.",
+    "rememberValue": 45
+  },
+  {
+    "word": "silently",
+    "lexical": "adverb",
+    "description": "in a quiet manner",
+    "example": "She left the room silently.",
+    "rememberValue": 15
+  },
+  {
+    "word": "create",
+    "lexical": "verb",
+    "description": "to bring something into existence",
+    "example": "He likes to create new recipes.",
+    "rememberValue": 70
+  },
+  {
+    "word": "book",
+    "lexical": "noun",
+    "description": "a set of written or printed pages bound together",
+    "example": "She read a book.",
+    "rememberValue": 10
+  },
+  {
+    "word": "intelligent",
+    "lexical": "adjective",
+    "description": "having or showing intelligence",
+    "example": "He is an intelligent student.",
+    "rememberValue": 55
+  },
+  {
+    "word": "swim",
+    "lexical": "verb",
+    "description": "to move through water by moving parts of the body",
+    "example": "They swim in the pool.",
+    "rememberValue": 20
+  },
+  {
+    "word": "bright",
+    "lexical": "adjective",
+    "description": "giving off or reflecting light",
+    "example": "The sun is bright.",
+    "rememberValue": 30
+  },
+  {
+    "word": "harmony",
+    "lexical": "noun",
+    "description": "agreement in feeling or opinion",
+    "example": "They live in harmony.",
+    "rememberValue": 40
+  },
+  {
+    "word": "slowly",
+    "lexical": "adverb",
+    "description": "at a slow speed",
+    "example": "He walked slowly.",
+    "rememberValue": 25
+  },
+  {
+    "word": "design",
+    "lexical": "verb",
+    "description": "to create the plans for something",
+    "example": "She likes to design clothes.",
+    "rememberValue": 35
+  },
+  {
+    "word": "wisdom",
+    "lexical": "noun",
+    "description": "the quality of being wise",
+    "example": "His wisdom is admired by many.",
+    "rememberValue": 60
+  },
+  {
+    "word": "cheerful",
+    "lexical": "adjective",
+    "description": "noticeably happy and optimistic",
+    "example": "She has a cheerful personality.",
+    "rememberValue": 45
+  },
+  {
+    "word": "quietly",
+    "lexical": "adverb",
+    "description": "in a quiet manner",
+    "example": "The baby slept quietly.",
+    "rememberValue": 15
+  },
+  {
+    "word": "innovate",
+    "lexical": "verb",
+    "description": "to introduce new methods or ideas",
+    "example": "They aim to innovate in technology.",
+    "rememberValue": 70
+  },
+  {
+    "word": "car",
+    "lexical": "noun",
+    "description": "a road vehicle with an engine",
+    "example": "He drives a car.",
+    "rememberValue": 10
+  },
+  {
+    "word": "brilliant",
+    "lexical": "adjective",
+    "description": "very bright or intelligent",
+    "example": "She has a brilliant mind.",
+    "rememberValue": 55
+  },
+  {
+    "word": "dance",
+    "lexical": "verb",
+    "description": "to move rhythmically to music",
+    "example": "They love to dance.",
+    "rememberValue": 20
+  },
+  {
+    "word": "shiny",
+    "lexical": "adjective",
+    "description": "reflecting light",
+    "example": "The surface is shiny.",
+    "rememberValue": 30
+  },
+  {
+    "word": "peace",
+    "lexical": "noun",
+    "description": "freedom from disturbance",
+    "example": "They seek peace.",
+    "rememberValue": 40
+  },
+  {
+    "word": "carefully",
+    "lexical": "adverb",
+    "description": "in a careful manner",
+    "example": "He carefully placed the vase.",
+    "rememberValue": 25
+  },
+  {
+    "word": "construct",
+    "lexical": "verb",
+    "description": "to build or form",
+    "example": "They construct buildings.",
+    "rememberValue": 35
+  },
+  {
+    "word": "insight",
+    "lexical": "noun",
+    "description": "the ability to understand deeply",
+    "example": "Her insight is valuable.",
+    "rememberValue": 60
+  },
+  {
+    "word": "delighted",
+    "lexical": "adjective",
+    "description": "feeling or showing great pleasure",
+    "example": "He was delighted by the news.",
+    "rememberValue": 45
+  },
+  {
+    "word": "softly",
+    "lexical": "adverb",
+    "description": "in a soft manner",
+    "example": "She spoke softly.",
+    "rememberValue": 15
+  },
+  {
+    "word": "invent",
+    "lexical": "verb",
+    "description": "to create or design something new",
+    "example": "He likes to invent gadgets.",
+    "rememberValue": 70
+  },
+  {
+    "word": "pen",
+    "lexical": "noun",
+    "description": "an instrument for writing or drawing",
+    "example": "She wrote with a pen.",
+    "rememberValue": 10
+  },
+  {
+    "word": "genius",
+    "lexical": "noun",
+    "description": "exceptional intellectual or creative power",
+    "example": "He is a genius in mathematics.",
+    "rememberValue": 55
+  },
+  {
+    "word": "jump",
+    "lexical": "verb",
+    "description": "to push oneself off the ground using the legs",
+    "example": "They jump for joy.",
+    "rememberValue": 20
+  },
+  {
+    "word": "dull",
+    "lexical": "adjective",
+    "description": "lacking brightness or interest",
+    "example": "The day was dull and gray.",
+    "rememberValue": 30
+  },
+  {
+    "word": "serenity",
+    "lexical": "noun",
+    "description": "the state of being calm and peaceful",
+    "example": "The garden is a place of serenity.",
+    "rememberValue": 40
+  },
+  {
+    "word": "gently",
+    "lexical": "adverb",
+    "description": "in a gentle manner",
+    "example": "He gently touched the flower.",
+    "rememberValue": 25
+  },
+  {
+    "word": "assemble",
+    "lexical": "verb",
+    "description": "to put together",
+    "example": "They will assemble the furniture.",
+    "rememberValue": 35
+  },
+  {
+    "word": "understanding",
+    "lexical": "noun",
+    "description": "the ability to comprehend",
+    "example": "Her understanding of the subject is deep.",
+    "rememberValue": 60
+  },
+  {
+    "word": "ecstatic",
+    "lexical": "adjective",
+    "description": "feeling or expressing overwhelming happiness",
+    "example": "They were ecstatic about the win.",
+    "rememberValue": 45
+  },
+  {
+    "word": "whisper",
+    "lexical": "verb",
+    "description": "to speak very softly",
+    "example": "She whispered a secret.",
+    "rememberValue": 15
+  },
+  {
+    "word": "discover",
+    "lexical": "verb",
+    "description": "to find something new",
+    "example": "He discovered a new planet.",
+    "rememberValue": 70
+  },
+  {
+    "word": "chair",
+    "lexical": "noun",
+    "description": "a seat for one person",
+    "example": "She sat on the chair.",
+    "rememberValue": 10
+  },
+  {
+    "word": "talented",
+    "lexical": "adjective",
+    "description": "having a natural aptitude or skill",
+    "example": "She is a talented musician.",
+    "rememberValue": 55
+  },
+  {
+    "word": "hop",
+    "lexical": "verb",
+    "description": "to jump a short distance",
+    "example": "The rabbit hops.",
+    "rememberValue": 20
+  },
+  {
+    "word": "dim",
+    "lexical": "adjective",
+    "description": "not bright",
+    "example": "The room was dimly lit.",
+    "rememberValue": 30
+  }
+]
