@@ -20,9 +20,7 @@ const AccountScreen = () => {
         <Modal animationType="slide" transparent={false} visible={modal}>
           <SafeAreaView style={{alignItems:"center"}}>
           <Text style={styles.flattext}>ONPRESS TEST</Text>
-          
           <Button onPress={()=>Setmodal(false)} title="Comfirm"/>
-          
           </SafeAreaView>
         </Modal>
 

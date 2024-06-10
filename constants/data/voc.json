@@ -4,7 +4,9 @@
     "lexical": "noun",
     "description": "a fruit",
     "example": "This is an apple.",
-    "rememberValue": 20
+    "rememberValue": 20,
+    "nextAdd": 15,
+    "nextMinus": 20
   },
   {
     "word": "run",

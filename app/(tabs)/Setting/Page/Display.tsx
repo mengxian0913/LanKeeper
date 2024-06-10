@@ -1,15 +1,17 @@
 import { Text, View, Switch, TouchableOpacity} from "react-native";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import SelectDropdown from "react-native-select-dropdown";
+import SettingJson from "../Setting.json";
 import styles from "./Styles";
 
 const DisplayScreen = () => {
-  const [checked,SetChecked] = useState(false);
+  const [checked,SetChecked] = useState(SettingJson.Theme);
+  const Selector = useRef("Medium");
   const textsize = [{title:"Large",value:"28"},{title:"Medium",value:"22"},{title:"Small",value:"16"}];
   const ToggleSwitch = () => {
     SetChecked(checked=>!checked);
   }
-    
+
   return(
         <View style={styles.container}>
       <View>
@@ -29,12 +31,13 @@ const DisplayScreen = () => {
           <SelectDropdown
             data={textsize}
             onSelect={(selectedItem, index) => {
+            Selector.current = selectedItem.title;            
             console.log(selectedItem, index);}}
             renderButton={(selectedItem, isOpened) => {
             return (
             <View style={styles.dropdownButtonStyle}>
               <Text style={styles.dropdownButtonTxtStyle}>
-                {(selectedItem && selectedItem.title) || 'Select textsize'}
+                {(selectedItem && selectedItem.title) || SettingJson.TextFont}
               </Text>
             </View>);}}
             renderItem={(item, index, isSelected) => {
