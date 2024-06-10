@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Text, SafeAreaView, View, TextInput, Button } from "react-native";
-import json from "@constants/data/voc.json";
 import * as Fs from "expo-file-system";
-import styles from "./Styles";
 import { vocType } from "../Home/VocCard/VocCard.js";
 import { vocFileName } from "@/constants/fileName";
 import { MyContext, myContextType } from "../_layout";
@@ -10,6 +8,7 @@ import { useNavigation } from "expo-router";
 
 type Datatype = vocType;
 const Create = () => {
+
   const { setReFetch, reFetch } = useContext(MyContext) as myContextType;
   const navigation = useNavigation();
   const [jsondata, Setjson] = useState<Datatype[]>([]);
@@ -30,6 +29,7 @@ const Create = () => {
     };
     Read();
   }, []);
+
 
   const SendData = async () => {
     let tempData = jsondata;
