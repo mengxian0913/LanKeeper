@@ -39,9 +39,19 @@ const styles = StyleSheet.create({
   },
   questionNumSelector: {
     fontSize: 25,
-    marginVertical: 25,
     fontWeight: "500",
+    marginVertical:20,
+    width:screenWidth*0.9,
     textAlign: "center",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 0.5 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
   },
 });
 export default styles;
