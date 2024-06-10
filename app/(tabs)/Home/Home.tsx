@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import styles from "./styles";
 import { SafeAreaView, Text, View } from "react-native";
 import Search from "./Search/Search";
@@ -17,11 +17,12 @@ import VocInfo from "./VocCard/VocInfo/VocInfo";
 import Colors from "@/constants/Colors";
 import * as Fs from "expo-file-system";
 import { vocFileName } from "@/constants/fileName";
+import { MyContext, myContextType } from "../_layout";
 
 const VocCards = () => {
   const file = Fs.documentDirectory + vocFileName;
   const [voc, setVoc] = useState<vocType[] | null>(null);
-  const [reFetch, setReFetch] = useState<boolean>(false);
+  const { reFetch } = useContext(MyContext) as myContextType;
 
   const getVocCards = async () => {
     const currentVoc = await Fs.readAsStringAsync(file);
@@ -39,15 +40,7 @@ const VocCards = () => {
       <View
         style={{ width: screenWidth, height: "auto", alignItems: "center" }}
       >
-        {voc &&
-          voc.map((item, index) => (
-            <VocCard
-              voc={item}
-              reFetch={reFetch}
-              setReFetch={setReFetch}
-              key={index}
-            />
-          ))}
+        {voc && voc.map((item, index) => <VocCard voc={item} key={index} />)}
       </View>
     </ScrollView>
   );
@@ -67,11 +60,7 @@ const Content = () => {
 
 export type RootStackParamList = {
   VocHome: undefined;
-  CardInfo: {
-    voc: vocType;
-    reFetch: boolean;
-    setReFetch: (key: boolean) => void;
-  };
+  CardInfo: vocType;
 };
 
 const ItemStack = createNativeStackNavigator<RootStackParamList>();

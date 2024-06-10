@@ -1,11 +1,22 @@
 import { ScrollViewStyleReset } from "expo-router/html";
+import React, { createContext, useState } from "react";
 import "react-native-gesture-handler";
 
 // This file is web-only and used to configure the root HTML for every
 // web page during static rendering.
 // The contents of this function only run in Node.js environments and
 // do not have access to the DOM or browser APIs.
+
+export type myContextType = {
+  reFetch: boolean;
+  setReFetch: (key: boolean) => void;
+};
+
+export const MyContext = createContext<myContextType | undefined>(undefined);
+
 export default function Root({ children }: { children: React.ReactNode }) {
+  const [reFetch, setReFetch] = useState(true);
+
   return (
     <html lang="en">
       <head>
@@ -26,7 +37,11 @@ export default function Root({ children }: { children: React.ReactNode }) {
         <style dangerouslySetInnerHTML={{ __html: responsiveBackground }} />
         {/* Add any additional <head> elements that you want globally available on web... */}
       </head>
-      <body>{children}</body>
+      <body>
+        <MyContext.Provider value={{ reFetch, setReFetch }}>
+          {children}
+        </MyContext.Provider>
+      </body>
     </html>
   );
 }
