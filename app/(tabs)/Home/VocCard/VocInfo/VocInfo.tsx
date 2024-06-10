@@ -76,7 +76,7 @@ const DeleteButton = ({ wordToDelete }: deleteProps) => {
 
 const VocInfo = () => {
   const route = useRoute();
-  const voc = route.params as any;
+  const voc = route.params as vocType;
 
   useEffect(() => {
     console.log("params: ", voc);
@@ -145,7 +145,7 @@ const VocInfo = () => {
             alignItems: "center",
           }}
         >
-          <Text>{voc.example}</Text>
+          <Text style={{ fontSize: 18 }}>{voc.example}</Text>
         </View>
         <DeleteButton wordToDelete={voc.word} />
       </ScrollView>

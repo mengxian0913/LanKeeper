@@ -1,1 +1,1 @@
-export const vocFileName = "djdje.json";
+export const vocFileName = "wjeorwedje.json";

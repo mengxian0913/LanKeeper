@@ -36,7 +36,7 @@ const TabLayout = () => {
             word: item.word,
             lexical: item.lexical,
             description: item.description,
-            example: item.description,
+            example: item.example,
             rememberValue: item.rememberValue,
           };
           tempData.push(newData);
