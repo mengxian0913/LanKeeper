@@ -14,22 +14,16 @@ export type vocType = {
 
 interface vocProps {
   voc: vocType;
-  reFetch: boolean;
-  setReFetch: (key: boolean) => void;
 }
 
-const VocCard = ({ voc, reFetch, setReFetch }: vocProps) => {
+const VocCard = ({ voc }: vocProps) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const handleOnClick = () => {
     console.log(voc.word);
     console.log("Go to Detail Component");
-    navigation.navigate("CardInfo", {
-      voc,
-      reFetch,
-      setReFetch,
-    });
+    navigation.navigate("CardInfo", voc);
   };
 
   return (

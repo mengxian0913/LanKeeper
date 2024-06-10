@@ -1,5 +1,5 @@
 import { useRoute } from "@react-navigation/native";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { screenWidth, screenHeight } from "@/constants/Config";
 import { vocType } from "../VocCard";
@@ -8,15 +8,16 @@ import { Alert } from "react-native";
 import * as Fs from "expo-file-system";
 import { vocFileName } from "@/constants/fileName";
 import { useNavigation } from "expo-router";
+import { MyContext, myContextType } from "@/app/(tabs)/_layout";
 
 interface deleteProps {
   wordToDelete: string;
-  reFetch: boolean;
-  setReFetch: (key: boolean) => void;
 }
 
-const DeleteButton = ({ wordToDelete, reFetch, setReFetch }: deleteProps) => {
+const DeleteButton = ({ wordToDelete }: deleteProps) => {
   const navigation = useNavigation();
+
+  const { reFetch, setReFetch } = useContext(MyContext) as myContextType;
 
   const handleDelete = async () => {
     const filePath = Fs.documentDirectory + vocFileName;
@@ -75,7 +76,7 @@ const DeleteButton = ({ wordToDelete, reFetch, setReFetch }: deleteProps) => {
 
 const VocInfo = () => {
   const route = useRoute();
-  const { voc, reFetch, setReFetch } = route.params as any;
+  const voc = route.params as any;
 
   useEffect(() => {
     console.log("params: ", voc);
@@ -146,11 +147,7 @@ const VocInfo = () => {
         >
           <Text>{voc.example}</Text>
         </View>
-        <DeleteButton
-          wordToDelete={voc.word}
-          reFetch={reFetch}
-          setReFetch={setReFetch}
-        />
+        <DeleteButton wordToDelete={voc.word} />
       </ScrollView>
     </View>
   );
