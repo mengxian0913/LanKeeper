@@ -11,7 +11,6 @@ interface searchBottomProps {
 
 const Search = ({ bottomSheetRef }: searchBottomProps) => {
   const handleOpenBottomSheet = () => {
-    console.log("123");
     bottomSheetRef.current?.snapToIndex(0);
   };
 

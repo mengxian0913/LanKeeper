@@ -1,4 +1,10 @@
-import React, { useMemo, RefObject, useState, useEffect } from "react";
+import React, {
+  useMemo,
+  RefObject,
+  useState,
+  useEffect,
+  useContext,
+} from "react";
 import BottomSheet from "@gorhom/bottom-sheet";
 import { PanGestureHandler, ScrollView } from "react-native-gesture-handler";
 import { TextInput, Button, Alert, View, Pressable, Text } from "react-native";
@@ -9,6 +15,7 @@ import * as Fs from "expo-file-system";
 import { useNavigation } from "expo-router";
 import { RootStackParamList } from "../../Home";
 import { NativeStackNavigationProp } from "react-native-screens/lib/typescript/native-stack/types";
+import { MyContext, myContextType } from "@/app/(tabs)/_layout";
 
 interface searchBottomProps {
   bottomSheetRef: RefObject<BottomSheet>;
@@ -100,6 +107,7 @@ const SearchBottom = ({ bottomSheetRef }: searchBottomProps) => {
   const [text, setText] = useState("");
   const [voc, setVoc] = useState<vocType[]>();
   const file = Fs.documentDirectory + vocFileName;
+  const { reFetch } = useContext(MyContext) as myContextType;
 
   const getVocCards = async () => {
     const currentVoc = await Fs.readAsStringAsync(file);
@@ -110,7 +118,7 @@ const SearchBottom = ({ bottomSheetRef }: searchBottomProps) => {
 
   useEffect(() => {
     getVocCards();
-  }, []);
+  }, [reFetch]);
 
   return (
     <BottomSheet

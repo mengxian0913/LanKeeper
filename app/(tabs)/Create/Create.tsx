@@ -86,13 +86,15 @@ const Create = () => {
   }, []);
 
   const wordCheck = () => {
-    var count=0;
-    jsondata.map(item=>{
-      if(item.word==temp.word&&item.lexical===temp.lexical) count++;      
-    })
-    if(count==0) SendData();
-    else{Alert.alert("word repetition")}
-  }
+    var count = 0;
+    jsondata.map((item) => {
+      if (item.word == temp.word && item.lexical === temp.lexical) count++;
+    });
+    if (count == 0) SendData();
+    else {
+      Alert.alert("word repetition");
+    }
+  };
 
   const SendData = async () => {
     let tempData = jsondata;
@@ -114,7 +116,8 @@ const Create = () => {
   };
 
   const HandleInput = (text: string) => {
-    const newText = text.replace(/[^a-zA-Z]/g, "");
+    const newText = text.replace(/[^a-zA-Z ]/g, "");
+
     //console.log(text);
     //Setdata({...temp,word:newText});
     return newText.toLowerCase();
@@ -134,7 +137,7 @@ const Create = () => {
           <Text style={{ fontSize: 24, fontWeight: "500" }}>Name</Text>
           <TextInput
             style={styles.textinput}
-            onChangeText={(text) => 
+            onChangeText={(text) =>
               Setdata({ ...temp, word: HandleInput(text) })
             }
             value={temp.word}

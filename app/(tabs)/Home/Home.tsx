@@ -26,8 +26,11 @@ const VocCards = () => {
     const currentVoc = await Fs.readAsStringAsync(file);
     const currentVocJson = JSON.parse(currentVoc) as vocType[];
     currentVocJson.sort((a, b) => a.rememberValue - b.rememberValue);
-    console.log(currentVocJson[0].rememberValue);
-    console.log(currentVocJson[currentVocJson.length - 1].rememberValue);
+    console.log("minRememberValue: ", currentVocJson[0].rememberValue);
+    console.log(
+      "maxRememberValue: ",
+      currentVocJson[currentVocJson.length - 1].rememberValue,
+    );
     setVoc(currentVocJson);
   };
 
