@@ -37,7 +37,7 @@ const Create = () => {
     lexical: "",
     description: "",
     example: "",
-    rememberValue: 0,
+    rememberValue: 50,
   });
 
   const file = Fs.documentDirectory + vocFileName;

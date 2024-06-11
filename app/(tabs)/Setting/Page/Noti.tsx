@@ -56,14 +56,7 @@ const NoticeScreen = () => {
   return (
     <View style={{ width: screenWidth, alignItems: "center" }}>
       <TouchableOpacity
-        style={{
-          width: screenWidth * 0.9,
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          backgroundColor: "white",
-          borderRadius: 20,
-        }}
+        style={styles.frequencySelector}
         onPress={ToggleSwitch}
       >
         <Text style={styles.flattext}>Notice</Text>
@@ -75,17 +68,17 @@ const NoticeScreen = () => {
             alignItems: "center",
           }}
         >
-          <Entypo name="light-up" size={24} color="black" />
+          <Entypo name="sound-mute" size={24} color="black" />
           <Switch
             style={styles.flattext}
             value={settingData.Noticeenable}
             onValueChange={ToggleSwitch}
           />
-          <Entypo name="moon" size={24} color="black" />
+          <Entypo name="sound" size={24} color="black" />
         </View>
       </TouchableOpacity>
 
-      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+      <View style={styles.frequencySelector}>
         <Text style={styles.flattext}>Frequency:</Text>
         <SelectDropdown
           data={frequency}

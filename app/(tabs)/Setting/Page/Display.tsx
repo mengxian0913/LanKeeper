@@ -3,6 +3,8 @@ import React, { useState, useRef } from "react";
 import SelectDropdown from "react-native-select-dropdown";
 import SettingJson from "../Setting.json";
 import styles from "./Styles";
+import Colors from "@/constants/Colors";
+import { Entypo } from "@expo/vector-icons";
 
 const DisplayScreen = () => {
   const [checked,SetChecked] = useState(SettingJson.Theme);
@@ -15,17 +17,19 @@ const DisplayScreen = () => {
   return(
         <View style={styles.container}>
       <View>
-        <TouchableOpacity style={{flexDirection:"row"}} onPress={ToggleSwitch}>
-        <Text style={styles.flattext}>Theme                      </Text>
-        <Text style={styles.flattext}>Light</Text>
+        <TouchableOpacity style={styles.frequencySelector} onPress={ToggleSwitch}>
+        <Text style={styles.flattext}>Theme</Text>
+        <Entypo name="light-up" size={24} color="black" />
         <Switch
-          style={styles.flattext}
+          style={{
+          marginHorizontal:-20,
+          }}
           value={checked}
           onValueChange={ToggleSwitch}
         />
-        <Text style={styles.flattext}>Dark</Text>
+        <Entypo name="moon" size={24} color="black" />
         </TouchableOpacity>
-        <View style={{flexDirection:"row",justifyContent: "space-between"}}>
+        <View style={styles.frequencySelector}>
           <Text style={styles.flattext}>Text Size:</Text>
 
           <SelectDropdown
