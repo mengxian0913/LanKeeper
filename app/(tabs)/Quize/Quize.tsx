@@ -99,7 +99,11 @@ const Quize = () => {
         i != NumArray[0].num &&
         i != NumArray[1].num &&
         i != NumArray[2].num &&
-        i != NumArray[3].num
+        i != NumArray[3].num &&
+        jsondata[i].word != jsondata[0].word &&
+        jsondata[i].word != jsondata[1].word &&
+        jsondata[i].word != jsondata[2].word &&
+        jsondata[i].word != jsondata[3].word 
       ) {
         reNum = i;
         return reNum;
