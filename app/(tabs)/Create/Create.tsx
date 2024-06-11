@@ -6,6 +6,7 @@ import {
   TextInput,
   Button,
   Pressable,
+  Alert,
 } from "react-native";
 import * as Fs from "expo-file-system";
 import SelectDropdown from "react-native-select-dropdown";
@@ -83,6 +84,15 @@ const Create = () => {
     };
     Read();
   }, []);
+
+  const wordCheck = () => {
+    var count=0;
+    jsondata.map(item=>{
+      if(item.word==temp.word&&item.lexical===temp.lexical) count++;      
+    })
+    if(count==0) SendData();
+    else{Alert.alert("word repetition")}
+  }
 
   const SendData = async () => {
     let tempData = jsondata;
@@ -167,7 +177,7 @@ const Create = () => {
         }}
       >
         <Pressable
-          onPress={SendData}
+          onPress={wordCheck}
           style={{
             width: screenWidth * 0.4,
             backgroundColor: Colors.light.tint,
