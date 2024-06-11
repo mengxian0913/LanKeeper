@@ -1,11 +1,12 @@
 import React, {useState,useEffect,useContext} from "react";
-import { Text, SafeAreaView, View, Button, TouchableOpacity, ScrollView } from "react-native";
+import { Text, SafeAreaView, View, Button, TouchableOpacity, ScrollView, Pressable } from "react-native";
 import * as Fs from 'expo-file-system';
 import styles from "./Styles.ts";
 import { vocFileName } from "@/constants/fileName.ts";
 import { MyContext, myContextType } from "../_layout";
 import { vocType } from "../Home/VocCard/VocCard.js";
 import { screenWidth } from "@/constants/Config.ts";
+import Colors from "@/constants/Colors";
 
 const Quize = () => {
   type Datatype = vocType;
@@ -118,8 +119,12 @@ const Quize = () => {
     <View style={{marginVertical:15,width: screenWidth, paddingHorizontal: 18, paddingVertical: 20 }}>
       <View style={styles.questionNumSelector}>
       <Text style={{ fontSize: 24, fontWeight: "500" }}>{correct}/{examNum}</Text>
-      <Text style={{ fontSize: 24, fontWeight: "500", color:"blue" }} onPress={()=>ResetRate()}>Comfirm</Text>
       </View>
+    <View style={{ width: screenWidth * 0.95, alignItems: "center",marginHorizontal:-9}}>
+      <Pressable onPress={ResetRate} style={{width: screenWidth * 0.4,backgroundColor: Colors.light.tint,borderRadius: 20,}}>
+        <Text style={{fontSize: 16,fontWeight: "500",padding: 12,textAlign: "center",}}>Comfirm</Text>
+      </Pressable>
+    </View>
       {record.map(item=>(
       <View style={styles.questionNumSelector}>
         <Text style={{ fontSize: 24,fontWeight: "500" }}>choose: {item.choosen}</Text>
@@ -169,7 +174,11 @@ const Quize = () => {
     })
     return (
       <View style={{marginVertical:15,width: screenWidth, paddingHorizontal: 18, paddingVertical: 20 }}>
-        <Button title="Escape" onPress={ResetRate} />
+    <View style={{ width: screenWidth * 0.95, alignItems: "center",marginHorizontal:-9}}>
+      <Pressable onPress={ResetRate} style={{width: screenWidth * 0.4,backgroundColor: Colors.light.tint,borderRadius: 20,}}>
+        <Text style={{fontSize: 16,fontWeight: "500",padding: 12,textAlign: "center",}}>Escape</Text>
+      </Pressable>
+    </View>
         <View style={styles.questionNumSelector}>
         <Text style={{ fontSize: 18, fontWeight: "500" }}>Description:</Text>
         <Text style={{ fontSize: 24, fontWeight: "500" }}>{jsondata[AnswerNum].description}</Text>

@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Text, SafeAreaView, View, TextInput, Button } from "react-native";
+import { Text, SafeAreaView, View, TextInput, Button, Pressable } from "react-native";
 import * as Fs from "expo-file-system";
 import { vocType } from "../Home/VocCard/VocCard.js";
 import { vocFileName } from "@/constants/fileName";
 import { MyContext, myContextType } from "../_layout";
 import { useNavigation } from "expo-router";
 import styles from "./Styles";
+import { screenWidth } from "@/constants/Config";
+import Colors from "@/constants/Colors";
 
 type Datatype = vocType;
 const Create = () => {
@@ -60,31 +62,45 @@ const Create = () => {
   return (
     <View>
       <Header />
-      <Text style={styles.flattext}>Name</Text>
+      <View style={{marginVertical:15,width: screenWidth, paddingHorizontal: 18, paddingVertical: 20 }}>
+      <View style={styles.textfield}>
+      <Text style={{ fontSize: 24,fontWeight: "500" }}>Name</Text>
       <TextInput        
         style={styles.textinput}
         onChangeText={(text)=>Setdata({...temp, word:HandleInput(text)})}
         value={temp.word}
       />
-      <Text style={styles.flattext}>Part of speech</Text>
+      </View>
+      <View style={styles.textfield}>
+      <Text style={{ fontSize: 24,fontWeight: "500" }}>Part of speech</Text>
       <TextInput        
         style={styles.textinput}
         onChangeText={(text) => Setdata({ ...temp, lexical:HandleInput(text) })}
         value={temp.lexical}
       />
-      <Text style={styles.flattext}>Description</Text>
+      </View>
+      <View style={styles.textfield}>
+      <Text style={{ fontSize: 24,fontWeight: "500" }}>Description</Text>
       <TextInput
         style={styles.textinput}
         onChangeText={(text) => Setdata({ ...temp, description:HandleInput(text)})}
         value={temp.description}
       />
-      <Text style={styles.flattext}>Example sentence</Text>
+      </View>
+      <View style={styles.textfield}>
+      <Text style={{ fontSize: 24,fontWeight: "500" }}>Example sentence</Text>
       <TextInput
         style={styles.textinput}
         onChangeText={(text) => Setdata({ ...temp, example: HandleInput(text )})}
         value={temp.example}
       />
-      <Button title="Send" onPress={SendData} />
+      </View>
+      </View>
+    <View style={{ width: screenWidth * 0.95, alignItems: "center", marginVertical:-18,}}>
+      <Pressable onPress={SendData} style={{width: screenWidth * 0.4,backgroundColor: Colors.light.tint,borderRadius: 20,}}>
+        <Text style={{fontSize: 16,fontWeight: "500",padding: 12,textAlign: "center",}}>Send</Text>
+      </Pressable>
+    </View>
     </View>
   );
 };
