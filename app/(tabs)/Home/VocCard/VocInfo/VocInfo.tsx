@@ -26,7 +26,7 @@ const DeleteButton = ({ wordToDelete }: deleteProps) => {
       // 讀取 JSON 文件
       const fileContent = await Fs.readAsStringAsync(filePath);
       const vocList = JSON.parse(fileContent);
-      console.log(vocList);
+      // console.log(vocList);
 
       // 過濾掉要刪除的單詞
       const updatedVocList = vocList.filter(

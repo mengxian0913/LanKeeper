@@ -40,7 +40,7 @@ const Content = ({ text, setText }: contentProps) => {
         }}
         onChangeText={handleTextChange} // 每当文本发生变化时调用的回调函数
         value={text} // 输入框中的值，由 text 状态管理
-        placeholder="在此输入文本" // 占位符文本
+        placeholder="apple" // 占位符文本
       />
     </View>
   );
@@ -103,7 +103,7 @@ const SearchBottom = ({ bottomSheetRef }: searchBottomProps) => {
 
   const getVocCards = async () => {
     const currentVoc = await Fs.readAsStringAsync(file);
-    console.log(currentVoc);
+    // console.log(currentVoc);
     const currentVocJson = JSON.parse(currentVoc);
     setVoc(currentVocJson);
   };
