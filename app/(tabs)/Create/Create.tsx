@@ -107,7 +107,7 @@ const Create = () => {
     const newText = text.replace(/[^a-zA-Z]/g, "");
     //console.log(text);
     //Setdata({...temp,word:newText});
-    return newText.toLowerCase();
+    return newText;
   };
   return (
     <View>
@@ -134,13 +134,7 @@ const Create = () => {
           <Text style={{ fontSize: 24, fontWeight: "500" }}>
             Part of speech
           </Text>
-          <TextInput
-            style={styles.textinput}
-            onChangeText={(text) =>
-              Setdata({ ...temp, lexical: HandleInput(text) })
-            }
-            value={temp.lexical}
-          />
+          <LexicalList />
         </View>
         <View style={styles.textfield}>
           <Text style={{ fontSize: 24, fontWeight: "500" }}>Description</Text>
@@ -165,9 +159,32 @@ const Create = () => {
           />
         </View>
       </View>
-      <View style={styles.textfield}>
-        <Text style={{ fontSize: 24, fontWeight: "500" }}>Part of speech</Text>
-        <LexicalList />
+      <View
+        style={{
+          width: screenWidth * 0.95,
+          alignItems: "center",
+          marginVertical: -18,
+        }}
+      >
+        <Pressable
+          onPress={SendData}
+          style={{
+            width: screenWidth * 0.4,
+            backgroundColor: Colors.light.tint,
+            borderRadius: 20,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 16,
+              fontWeight: "500",
+              padding: 12,
+              textAlign: "center",
+            }}
+          >
+            Send
+          </Text>
+        </Pressable>
       </View>
     </View>
   );
