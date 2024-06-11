@@ -13,6 +13,7 @@ import * as Fs from "expo-file-system";
 import { vocFileName } from "@/constants/fileName";
 import { vocType } from "../../Home/VocCard/VocCard";
 import { MyContext, myContextType } from "../../_layout";
+import Colors from "@/constants/Colors";
 
 const AccountScreen = () => {
   const [modal, Setmodal] = useState(false);
@@ -71,11 +72,29 @@ const AccountScreen = () => {
         <Text style={{ fontSize: 24, fontWeight: "600" }}>Total Card:</Text>
         <Text style={{ fontSize: 24, fontWeight: "500" }}>{amountOfVoc}</Text>
       </View>
-      <TouchableOpacity onPress={() => Setmodal(true)}>
-        <Text style={styles.flattext}>Back up</Text>
+      <TouchableOpacity
+        onPress={() => Setmodal(true)}
+        style={{
+          backgroundColor: Colors.light.tint,
+          paddingHorizontal: 20,
+          paddingVertical: 12,
+          borderRadius: 20,
+          marginVertical: 15,
+        }}
+      >
+        <Text style={{ fontSize: 24, fontWeight: "500" }}>Back up</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => Setmodal(true)}>
-        <Text style={styles.flattext}>Log Out</Text>
+      <TouchableOpacity
+        onPress={() => Setmodal(true)}
+        style={{
+          backgroundColor: Colors.light.tint,
+          paddingHorizontal: 20,
+          paddingVertical: 12,
+          borderRadius: 20,
+          marginVertical: 15,
+        }}
+      >
+        <Text style={{ fontSize: 24, fontWeight: "500" }}>Log out</Text>
       </TouchableOpacity>
 
       <Modal animationType="slide" transparent={false} visible={modal}>
