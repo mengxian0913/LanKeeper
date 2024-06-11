@@ -15,6 +15,7 @@ import { MyContext, myContextType } from "../_layout";
 import { vocType } from "../Home/VocCard/VocCard.js";
 import { screenWidth } from "@/constants/Config.ts";
 import Colors from "@/constants/Colors";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Quize = () => {
   type Datatype = vocType;
@@ -246,6 +247,7 @@ const Quize = () => {
   };
 
   const RenderItem = ({ AnswerNum, item }) => {
+    console.log(`item:`,item);
     return (
       <Text
         style={{ fontSize: 24, fontWeight: "500" }}
@@ -313,7 +315,7 @@ const Quize = () => {
           </Pressable>
         </View>
         <View style={styles.questionNumSelector}>
-          <Text style={{ fontSize: 18, fontWeight: "500" }}>Description:</Text>
+          <Text style={{ fontSize: 18, fontWeight: "500" }}>{jsondata[AnswerNum].lexical}</Text>
           <Text style={{ fontSize: 24, fontWeight: "500" }}>
             {jsondata[AnswerNum].description}
           </Text>
