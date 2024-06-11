@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Text, SafeAreaView, View, TextInput, Button, Pressable } from "react-native";
 import * as Fs from "expo-file-system";
+import SelectDropdown from "react-native-select-dropdown";
 import { vocType } from "../Home/VocCard/VocCard.js";
 import { vocFileName } from "@/constants/fileName";
 import { MyContext, myContextType } from "../_layout";
@@ -11,7 +12,7 @@ import Colors from "@/constants/Colors";
 
 type Datatype = vocType;
 const Create = () => {
-
+  const posList=["noun", "pronoun", "verb", "adjective", "adverb", "preposition", "conjunction", "interjection"]
   const { setReFetch, reFetch } = useContext(MyContext) as myContextType;
   const navigation = useNavigation();
   const [jsondata, Setjson] = useState<Datatype[]>([]);
@@ -25,6 +26,29 @@ const Create = () => {
 
   const file = Fs.documentDirectory + vocFileName;
 
+  const LexicalList = () => {
+    return(
+     <SelectDropdown
+            data={posList}
+            onSelect={(selectedItem, index) => {
+            Setdata({...temp,lexical:selectedItem})
+            console.log(selectedItem, index);}}
+            renderButton={(selectedItem, isOpened) => {
+            return (
+            <View style={styles.dropdownButtonStyle}>
+              <Text style={styles.dropdownButtonTxtStyle}>
+                {(selectedItem && selectedItem.title) || temp.lexical}
+              </Text>
+            </View>);}}
+            renderItem={(item, index, isSelected) => {
+            return (
+            <View style={{...styles.dropdownItemStyle, ...(isSelected && {backgroundColor: '#D2D9DF'})}}>
+              <Text style={styles.dropdownItemTxtStyle}>{item}</Text>
+            </View>);}}
+            showsVerticalScrollIndicator={false}
+            dropdownStyle={styles.dropdownMenuStyle} /> 
+    );
+  }
   useEffect(() => {
     const Read = async () => {
       const TempforJson = await Fs.readAsStringAsync(file);
@@ -32,7 +56,6 @@ const Create = () => {
     };
     Read();
   }, []);
-
 
   const SendData = async () => {
     let tempData = jsondata;
@@ -73,11 +96,7 @@ const Create = () => {
       </View>
       <View style={styles.textfield}>
       <Text style={{ fontSize: 24,fontWeight: "500" }}>Part of speech</Text>
-      <TextInput        
-        style={styles.textinput}
-        onChangeText={(text) => Setdata({ ...temp, lexical:HandleInput(text) })}
-        value={temp.lexical}
-      />
+      <LexicalList />
       </View>
       <View style={styles.textfield}>
       <Text style={{ fontSize: 24,fontWeight: "500" }}>Description</Text>
