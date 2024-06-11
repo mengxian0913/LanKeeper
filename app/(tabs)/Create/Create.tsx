@@ -107,7 +107,7 @@ const Create = () => {
     const newText = text.replace(/[^a-zA-Z]/g, "");
     //console.log(text);
     //Setdata({...temp,word:newText});
-    return newText;
+    return newText.toLowerCase();
   };
   return (
     <View>
@@ -124,7 +124,7 @@ const Create = () => {
           <Text style={{ fontSize: 24, fontWeight: "500" }}>Name</Text>
           <TextInput
             style={styles.textinput}
-            onChangeText={(text) =>
+            onChangeText={(text) => 
               Setdata({ ...temp, word: HandleInput(text) })
             }
             value={temp.word}
